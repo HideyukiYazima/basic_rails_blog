@@ -4,4 +4,8 @@ class ArticlesController < ApplicationController
     @articles = Article.all.order(created_at: 'desc')
   end
   
+  def show
+    @articles = Article.find(params[:id])
+  end
+
 end
