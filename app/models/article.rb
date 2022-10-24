@@ -1,4 +1,4 @@
 class Article < ApplicationRecord
-  validates :title, presence :true, length: { minimum:3, message: '短すぎて投稿できません！' }
-  validates :body, presence :true
+  validates :title, presence: true, length: { minimum: 3, message: 'Too short to post!' }
+  validates :body, presence: true
 end
