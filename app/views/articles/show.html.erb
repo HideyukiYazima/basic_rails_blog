@@ -1,2 +1,29 @@
 <h2><%= @articles.title %></h2>
 <p><%= simple_format @articles.body %></p>
+
+<h3>コメント</h3>
+<% if @articles.comments.any? %>
+<ul>
+  <% @articles.comments.each do |comment| %>
+<li>
+  <%= comment.body %>
+    <%= link_to '[削除]', 
+    article_comment_path(article, comment), 
+    methed: :delete, 
+    class: 'command',
+    data: { confirm: '削除しても大丈夫ですか？' } %>
+</li>
+<% end %>
+</ul>
+<% end %>
+<%= form_for([@articles, @articles_id.comments.build]) do |f| %>
+<p>
+  <%= f.text_field :body %>
+</p>
+<p>
+
+</p>
+<p>
+  <%= f.submit %>
+</p>
+<% end %>
