@@ -7,6 +7,11 @@
   <li>
   <%= link_to article.title, article_path(article) %>
   <%= link_to '[編集]', edit_article_path(article), class: 'command' %>
+  <%= link_to '[削除]', 
+    article_path(article), 
+    methed: :delete, 
+    class: 'command',
+    data: { confirm: '削除しても大丈夫ですか？' } %>
   </li>
 <% end %>
 </ul>

@@ -1,18 +1,2 @@
 <h2>新規作成</h2>
-<%= form_for :article, url: articles_path do |f| %>
-<p>
-  <%= f.text_field :title, placeholder: 'タイトル入力' %>
-  <% if @articles.errors.messages[:title].any? %>
-  <span class="error"><%= @articles.errors.messages[:title][0] %></span>
-  <% end %>
-</p>
-<p>
-  <%= f.text_area :body, placeholder: 'テキスト入力' %>
-  <% if @articles.errors.messages[:body].any? %>
-  <span class="error"><%= @articles.errors.messages[:body][0] %></span>
-  <% end %>
-</p>
-<p>
-  <%= f.submit %>
-</p>
-<% end %>
+<%= render 'form' %>
